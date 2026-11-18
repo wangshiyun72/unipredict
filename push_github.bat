@@ -33,11 +33,11 @@ echo 国内直连 GitHub 经常超时。如果你开着代理软件，请输入�
 echo   Clash for Windows 一般是 7890，Clash Verge 是 7897，v2rayN 是 10808
 set "PROXY_PORT="
 set /p PROXY_PORT=代理端口（没有代理直接回车）：
-if defined PROXY_PORT (
-  git -c http.proxy=http://127.0.0.1:%PROXY_PORT% -c https.proxy=http://127.0.0.1:%PROXY_PORT% push -u origin main
-) else (
-  git push -u origin main
-)
+set "GITP="
+if defined PROXY_PORT set "GITP=-c http.proxy=http://127.0.0.1:%PROXY_PORT% -c https.proxy=http://127.0.0.1:%PROXY_PORT%"
+REM 先合并 GitHub 上已有的提交（例如建仓库时自动生成的 LICENSE），避免推送被拒绝
+git %GITP% pull origin main --allow-unrelated-histories --no-rebase --no-edit
+git %GITP% push -u origin main
 if errorlevel 1 (
   echo.
   echo 推送失败。常见原因：1）GitHub 上还没有创建 unipredict 仓库；2）网络问题，可以开代理后重试。
