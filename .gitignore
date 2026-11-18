@@ -1,0 +1,16 @@
+# 运行时数据（数据库、上传的数据集、模型文件）
+backend/storage/
+backend/.env
+__pycache__/
+*.pyc
+frontend/node_modules/
+.vscode/
+.idea/
+
+# 学校的通知附件和结题报告不上传（含学生个人信息）
+/附件*
+/*.doc
+/*.docx
+/*.xlsx
+/*.pdf
+~$*

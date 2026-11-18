@@ -1,0 +1,9 @@
+# ===== 可选依赖：装上后对应模型/功能自动启用 =====
+# 注意：PyTorch 需要先按 docs/部署说明.md 安装 CUDA 版，再装下面这些，
+#       否则 tabpfn 会从 PyPI 拉 CPU 版 torch。
+tabpfn>=2.0          # 通用表格基础模型 TabPFN
+xgboost>=2.0         # XGBoost
+lightgbm>=4.0        # LightGBM
+rdkit>=2023.9        # SMILES 分子结构自动特征化
+onnxruntime>=1.17    # 接入外部 ONNX 模型
+matplotlib>=3.7      # 压测脚本出图
