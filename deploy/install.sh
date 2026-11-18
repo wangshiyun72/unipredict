@@ -128,7 +128,8 @@ if curl -fsS "http://127.0.0.1:$PORT/api/v1/health" >/dev/null 2>&1; then
   green " 网页地址：  http://$IP$( [ "$PORT" = 80 ] || echo ":$PORT" )/"
   green " 接口文档：  http://$IP$( [ "$PORT" = 80 ] || echo ":$PORT" )/docs"
   if [ -f "$APP_DIR/backend/.admin_password_initial" ]; then
-    green " 管理员：    admin / $(cat "$APP_DIR/backend/.admin_password_initial")（请登录后修改）"
+    green " 管理员：    admin / $(cat "$APP_DIR/backend/.admin_password_initial")（这是初始密码；如果已经修改过，以你修改后的为准）"
+    green " 忘记密码：  cd $APP_DIR/backend && ../venv/bin/python scripts/reset_password.py admin 新密码"
   fi
   green " 查看日志：  journalctl -u unipredict -f"
   green " 更新代码：  cd $APP_DIR && git pull && bash deploy/install.sh"
