@@ -30,13 +30,15 @@ http.interceptors.response.use(
       try { detail = JSON.parse(await err.response.data.text()).detail } catch (e) { /* ignore */ }
     }
     const msg = detailText(detail) || err.message
-    if (status === 401) {
+    const isAuthRequest = (err.config?.url || '').startsWith('/auth/')
+    if (status === 401 && !isAuthRequest) {
       auth.clear()
       if (router.currentRoute.value.name !== 'login') {
         ElMessage.warning('登录已过期，请重新登录')
         router.push({ name: 'login', query: { redirect: router.currentRoute.value.fullPath } })
       }
     } else if (!err.config?.silent) {
+      // 登录/注册失败（如密码错误）也要提示，不能静默
       const prefix = status === 429 ? '请求被限流：' : status === 503 ? '服务繁忙：' : ''
       ElMessage.error({ message: prefix + msg, duration: 5000 })
     }

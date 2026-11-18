@@ -30,7 +30,7 @@ git branch -M main
 
 echo [3/3] 推送到 GitHub...
 echo 国内直连 GitHub 经常超时。如果你开着代理软件，请输入它的本地端口：
-echo   Clash for Windows 一般是 7890，Clash Verge 是 7897，v2rayN 是 10808
+echo   (Clash for Windows: 7890 / Clash Verge: 7897 / v2rayN: 10808 / 0dcloud: 17891)
 set "PROXY_PORT="
 set /p PROXY_PORT=代理端口（没有代理直接回车）：
 set "GITP="
