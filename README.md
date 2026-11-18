@@ -4,7 +4,6 @@
 
 **基于服务器端通用模型的可访问式深度学习预测服务设计**
 
-重庆理工大学 2025 年本科生交叉创新培育项目 · 指导教师：邢志林 副教授
 
 [![在线体验](https://img.shields.io/badge/在线体验-8.156.66.225-0f766e?style=for-the-badge)](http://8.156.66.225/)
 [![接口文档](https://img.shields.io/badge/接口文档-Swagger-85ea2d?style=for-the-badge)](http://8.156.66.225/docs)
